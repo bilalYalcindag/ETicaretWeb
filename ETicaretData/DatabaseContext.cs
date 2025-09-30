@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace ETicaretData
 {
-    class DatabaseContext:DbContext
+   public class DatabaseContext:DbContext
     {
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<Brand> Brands { get; set; }

@@ -3,6 +3,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<ETicaretData.DatabaseContext>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -17,6 +19,10 @@ app.UseHttpsRedirection();
 app.UseRouting();
 
 app.UseAuthorization();
+app.MapControllerRoute(
+           name: "admin",
+           pattern: "{area:exists}/{controller=Main}/{action=Index}/{id?}"
+         );
 
 app.MapStaticAssets();
 
